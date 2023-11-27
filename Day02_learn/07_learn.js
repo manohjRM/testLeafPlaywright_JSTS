@@ -1,6 +1,6 @@
 const nums = [1,1,2,5,6,1,3,2,9,6]
 
-function findFirstDuplicate(num) {
+function findDuplicate(num) {
     let sum = 0;
     for (let index = 0; index < nums.length; index++) {
         if(num==nums[index]){
