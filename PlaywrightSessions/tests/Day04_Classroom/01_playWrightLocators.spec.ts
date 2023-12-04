@@ -8,32 +8,30 @@ test('To create the new lead', async () =>{
 
     //goto the app link
     await page.goto('http://leaftaps.com/opentaps/control/main');
-    const username = page.locator('#username');
-    const password = page.locator('#password');
-
-    //login to the app
-    await username.fill("Demosalesmanager");
-    await password.fill('crmsfa');
-    await page.locator('[type="submit"]').click();
+    //getByLable
+    const uname = page.getByLabel('username');
+    //using attribute
+    const pwd = page.locator('[name="PASSWORD"]');
+    await uname.fill("Demosalesmanager");
+    await pwd.fill('crmsfa');
+    //using classname
+    await page.locator('.decorativeSubmit').click();
     await page.waitForLoadState('load');
-
     //Navigate to the CRM page
-    await page.locator('#button').click();
+    const crm = await page.locator('#button').innerText();
+    console.log(crm)
+    //getByText
+    await page.getByText(crm).click();
     await page.waitForLoadState('load');
-
-    //Navigate to the Leads page
     await page.getByRole('link', { name: 'Leads' }).click();
     await page.waitForLoadState('load');
-
-    //Navigate to the Create lead page
     await page.getByRole('link', {name:'Create Lead'}).click();
     await page.waitForLoadState('load');
-
-    //Create new lead
     await page.locator('#createLeadForm_companyName').fill('Power Tech');
     await page.locator('#createLeadForm_firstName').fill('Power');
     await page.locator('#createLeadForm_lastName').fill('Tech');
     await page.locator('[value="Create Lead"]').click();
-
+    const status = await page.locator('#viewLead_statusId_sp').innerText();//getting the status of the lead
+    console.log(status);//print the status of the lead
     await page.waitForTimeout(5000);
 })
