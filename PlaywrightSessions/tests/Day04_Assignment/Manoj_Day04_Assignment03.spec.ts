@@ -10,7 +10,7 @@ Test Steps:
 6. Enter the Last Name
 7. Click save and verify Individuals Name
 */
-test("To Create Lead", async({page}) => {
+test("To Create Individuals", async({page}) => {
     const url = 'https://login.salesforce.com/';
 
     //Login to https://login.salesforce.com
@@ -26,26 +26,22 @@ test("To Create Lead", async({page}) => {
     await page.waitForLoadState('load');
     await page.locator('//button[text()="View All"]').click();
 
-    //Navigate to the sales module
-    await page.locator('//p[text()="Sales"]').click();
+    //Navigate to the Individuals module
+    await page.getByRole('link', {name: /Individuals/i}).click();
+    ////a//p[text()="Individuals"]
     await page.waitForLoadState('load');
-    await page.locator('//a/span[text()="Leads"]').click();
+    await page.locator('//a//span[text()="Individuals" or text()="Recentley Viewed"]//following::one-app-nav-bar-menu-button[1]').click();
     await page.waitForLoadState('load');
 
-    //Navigate to the create new lead form
-    await page.getByRole('button', { name: 'New' }).click();
+    //Navigate to the create new individual form
+    await page.locator('//a//span[text()="New Individual"]').click();
     await page.waitForLoadState('load');
-    await page.locator("//label[text()='Salutation']//following::button[1]").click();
-    await page.getByRole('option', { name: 'Mr.' }).click();
-    await page.locator('//label[text()="First Name"]//following::input[1]').fill('Manoj Kumar');
-    await page.locator('//label[text()="Last Name"]//following::input[1]').fill('R Manian');
-    await page.locator('//label[text()="Company"]//following::input[1]').fill('Power Tech');
-    await page.locator('[name="SaveEdit"]').click();
+    await page.locator('//span[text()="Salutation"]//following::a[1]').click();
+    await page.getByRole('menuitemradio', { name: 'Mr.' }).click();
+    // await page.locator('//span[text()="First Name"]//following::input[1]').fill('Manoj Kumar');
+    await page.locator('//span[text()="Last Name"]//following::input[1]').fill('R Manian');
+    await page.locator('//button[@title="Save"]').click();
 
-    //Get the Lead name
-    const leadName = await page.locator('lightning-formatted-name').innerText();
-    console.log(leadName);
-
-    //Verify the Lead name
-    expect(leadName).toBe('Mr. Manoj Kumar Manian');
+    //Verify the individual name
+    expect(page.getByText('Mr. Manoj Kumar Manian')).toBeVisible;
 });
