@@ -1,16 +1,18 @@
 import {chromium, expect, test} from '@playwright/test';
 /*
-Assignment: 3 Create Individuals
-Test Steps: 
+Assignment: 4 Edit Individuals
+Test Steps:
 1. Login to https://login.salesforce.com
 2. Click on the toggle menu button from the left corner
-3. Click View All and click Individuals from App Launcher
-4. Click on the Dropdown icon in the Individuals tab
-5. Click on New Individual
-6. Enter the Last Name
-7. Click save and verify Individuals Name
+3. Click View All and click Individuals from App Launcher 
+4. Click on the Individuals tab 
+5. Search the Individuals last name
+6. Click on the Dropdown icon and Select Edit
+7. Select Salutation as 'Mr'
+8. Now enter the first name
+9. Click on Save and Verify the first name 
 */
-test("To Create Individuals", async({page}) => {
+test("To Edit Individuals", async({page}) => {
     const url = 'https://login.salesforce.com/';
 
     //Login to https://login.salesforce.com
