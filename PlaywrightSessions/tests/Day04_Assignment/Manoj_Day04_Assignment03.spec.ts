@@ -30,7 +30,7 @@ test("To Create Individuals", async({page}) => {
     await page.getByRole('link', {name: /Individuals/i}).click();
     ////a//p[text()="Individuals"]
     await page.waitForLoadState('load');
-    await page.locator('//a//span[text()="Individuals" or text()="Recentley Viewed"]//following::one-app-nav-bar-menu-button[1]').click();
+    await page.locator('//span[contains(text(),"Individuals") or contains(text(),"Recently Viewed")]//following::span[text()="More"]//preceding::one-app-nav-bar-menu-button[1]').click();
     await page.waitForLoadState('load');
 
     //Navigate to the create new individual form
