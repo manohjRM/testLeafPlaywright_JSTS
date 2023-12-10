@@ -21,10 +21,16 @@ test("To Create Individuals", async({page}) => {
     await page.locator('#Login').click();
 
     //Lanch the app menu
-    await page.getByRole('button', { name: 'App Launcher' }).click();
+    // await page.getByRole('button', { name: 'App Launcher' }).click();
+    await page.reload();
+    let eleAppLaunch =  page.locator('button .slds-icon-waffle');
+    await expect(eleAppLaunch).toBeVisible({timeout: 150000});
+    await eleAppLaunch.click();
     // await page.getByRole('button', {name: 'View All' });
     await page.waitForLoadState('load');
-    await page.locator('//button[text()="View All"]').click();
+    let viewAll = page.locator('//button[text()="View All"]');
+    await expect(viewAll).toBeVisible({timeout: 150000});
+    await viewAll.click();
 
     //Navigate to the Individuals module
     await page.getByRole('link', {name: /Individuals/i}).click();

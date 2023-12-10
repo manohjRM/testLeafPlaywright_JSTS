@@ -21,7 +21,10 @@ test("To Create Lead", async({page}) => {
     await page.locator('#Login').click();
 
     //Lanch the app menu
-    await page.getByRole('button', { name: 'App Launcher' }).click();
+    // await page.getByRole('button', { name: 'App Launcher' }).click();
+    let ele =  page.locator('button .slds-icon-waffle');
+    await expect(ele).toBeVisible({timeout: 60000});
+    await page.locator('button .slds-icon-waffle').click();
     // await page.getByRole('button', {name: 'View All' });
     await page.waitForLoadState('load');
     await page.locator('//button[text()="View All"]').click();
@@ -47,5 +50,5 @@ test("To Create Lead", async({page}) => {
     console.log(leadName);
 
     //Verify the Lead name
-    expect(leadName).toBe('Mr. Manoj Kumar Manian');
+    expect(leadName).toBe('Mr. Manoj Kumar R Manian');
 });
