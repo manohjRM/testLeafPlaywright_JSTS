@@ -23,8 +23,8 @@ test("To add new account under sales", async({page}) => {
 
     //Click on toggle menu button from the left corner
     //Lanch the app menu
+    let eleAppLaunch =  page.locator('div.slds-icon-waffle');
     try {
-        let eleAppLaunch =  page.locator('div.slds-icon-waffle');
         await expect(eleAppLaunch).toBeVisible({timeout: 120000});
         await eleAppLaunch.click();
     } catch (error) {
@@ -32,6 +32,8 @@ test("To add new account under sales", async({page}) => {
         console.log(error);
         await page.waitForLoadState('load');
         await page.reload();
+        await expect(eleAppLaunch).toBeVisible({timeout: 120000});
+        await eleAppLaunch.click();
     }
     await page.waitForLoadState('load');
     let viewAll = page.locator('[aria-label="View All Applications"]');
