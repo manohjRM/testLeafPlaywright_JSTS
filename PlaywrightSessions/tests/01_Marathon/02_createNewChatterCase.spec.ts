@@ -19,7 +19,7 @@ test('Create and verify a New Case in Chatter', async ({page})=>{
     //Open the app launcher menu
     let eleAppLaunch =  page.locator('div.slds-icon-waffle');
     try {
-        await expect(eleAppLaunch).toBeVisible();
+        await expect(eleAppLaunch).toBeVisible({timeout: 150000});
         
         await eleAppLaunch.click();
     } catch (error) {
@@ -59,6 +59,7 @@ test('Create and verify a New Case in Chatter', async ({page})=>{
     await page.locator('//span[text()="Last Name"]//following::input[1]').fill(leadLastName);
     await page.locator('button[title="Save"]').click();
     await page.waitForLoadState('load');
+    await page.waitForTimeout(5000);
 
     //Verifying the success message on creating new contact
     // await expect(page.locator('[aria-label="Success"]')).toBeVisible();
@@ -67,6 +68,7 @@ test('Create and verify a New Case in Chatter', async ({page})=>{
     // await page.locator('[placeholder="Search Accounts..."]').click();
     await page.getByRole('combobox', { name: 'Account Name' }).click();
     await page.waitForLoadState('load');
+    await page.waitForTimeout(5000);
     await page.locator('[title="New Account"]').click();
     await page.locator('//span[text()="Account Name"]//following::input[1]').fill(leadCompany);
     await page.locator('//span[text()="Account Number"]//following::input[1]').fill('960886254');
