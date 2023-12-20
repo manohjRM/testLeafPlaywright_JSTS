@@ -33,7 +33,7 @@ export default defineConfig({
     // deviceScaleFactor: 0.5,
   },
 
-  timeout: 200*1000,
+  timeout: 180*1000,
 
   /* Configure projects for major browsers */
   projects: [
