@@ -1,4 +1,6 @@
 import {test, chromium} from '@playwright/test';
+// import login from "../../test-data/login.json";
+import loginSalesForce from './loginSalesForce.json';
 
 test('Login to the Salesforce app', async()=>{
     //launch the browser
@@ -7,17 +9,16 @@ test('Login to the Salesforce app', async()=>{
     //create new page for the browser
     const page = await browserContext.newPage();
     //login to the application
-    const url = 'https://login.salesforce.com/';
-    await page.goto(url);                                                                                                                                                                                     
+    await page.goto(loginSalesForce.url);                                                                                                                                                                                     
     await page.waitForLoadState('load');
     //click, clear and fill the fields
     const uname = page.locator('#username');
     uname.clear();
-    await uname.fill("manofjoy0506@gmail.com")
+    await uname.fill(loginSalesForce.username)
     const pwd = page.locator('#password');
     await pwd.click();
     pwd.clear();
-    await pwd.fill('Welcome@123');
+    await pwd.fill(loginSalesForce.password);
     await page.locator('#Login').click();
     //wait for the page state to load
     await page.waitForLoadState('load');
