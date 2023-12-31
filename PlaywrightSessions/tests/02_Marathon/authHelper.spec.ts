@@ -10,8 +10,8 @@ async function getAccessToken() {
 
 
 
-    const clientId = '3MVG9pRzvMkjMb6lZlt3YjDQwe0RTUtnLqc8rWNFedqHy35_PyLwx2JWcEq_OCq600Lt3N2IqytfKIDOlBw3v'
-    const clientSecret = '8250E443E447BAA66A9ABBDD3E45E061EF5A9F804D285D9E6DEEB577C2B76C06';
+    const clientId = ""//'3MVG9pRzvMkjMb6lZlt3YjDQwe0RTUtnLqc8rWNFedqHy35_PyLwx2JWcEq_OCq600Lt3N2IqytfKIDOlBw3v'
+    const clientSecret = ""//'8250E443E447BAA66A9ABBDD3E45E061EF5A9F804D285D9E6DEEB577C2B76C06';
     const username = 'ranjini.r@testleaf.com';
     const password = 'Testleaf$1234';
     const url = 'https://login.salesforce.com/services/oauth2/token';

@@ -9,8 +9,6 @@
     },
     "form":{
         "grant_type": "password",
-        "client_id": "3MVG9pRzvMkjMb6mRpikp.vBp5AUH9amePZ3cUIH56MgvH9BiSz.VlQYs4Va2BHtgBzobhEK.bkSXGc_eGMSh",
-        "client_secret": "D337BB8444E9E5079E199CA2C39D75C03AE1DA90BF100B7CE787D301408A8B8A",
         "username": "manofjoy0506@gmail.com",
         "password": "Welcome@123"
     }

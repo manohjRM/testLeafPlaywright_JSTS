@@ -7,3 +7,4 @@ function area(shape, width, height) {
     }
 }
 console.log(area("circle", 20));
+console.log(70000000011 - 1200340);
