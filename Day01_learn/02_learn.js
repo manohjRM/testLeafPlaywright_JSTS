@@ -3,8 +3,8 @@ const browserName = "Chrome";
 
 function getBrowserVersion(browser){
     if(browser.startsWith("Chrome")){
-        //var browserVersion = "120.0.2";
-        let browserVersion = "120.0.2";
+        var browserVersion = "120.0.2";
+        // let browserVersion = "120.0.2";
     }else{
         console.log("Not available")
     }

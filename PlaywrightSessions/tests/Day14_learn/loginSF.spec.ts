@@ -18,5 +18,6 @@ test('Verify home page', async({page})=>{
     await loginPage.login('Demosalesmanager','crmsfa');
     await loginPage.isLoginErrorDisplayed();
     await homePage.verifyHomePage();
-    console.log(await homePage.getTitle()); 
+    console.log(await homePage.getTitle());
+     
 })

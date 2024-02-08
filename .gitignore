@@ -2,3 +2,4 @@ Video/
 *.mp4
 node_modules/
 Locators_table_1_0_2.pdf
+.env

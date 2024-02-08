@@ -11,4 +11,4 @@ function findDuplicate(num) {
 }
 
 let num = 1
-console.log(`The number of occurance of ${num} is ${findOccurnace(num)}`)
+console.log(`The number of occurance of ${num} is ${findOccurnace(num)}`);

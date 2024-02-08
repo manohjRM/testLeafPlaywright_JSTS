@@ -5,11 +5,16 @@ export class LoginPage extends BasePage{
     async login(username:string, password:string){
         await this.page?.locator('#username').fill(username);
         await this.page?.locator('#password').fill(password);
+        console.log(await this.page?.getByRole('button', { name: 'Login' }).getAttribute('value'));
+        
         await this.page?.getByRole('button', { name: 'Login' }).click();
+        
         await this.page?.waitForTimeout(2000);
     }
     async isLoginErrorDisplayed(){
         let loginbtn = this.page?.getByRole('button', { name: 'Login' });
+        console.log(await loginbtn?.isVisible());
+        
         if(await loginbtn?.isVisible()){
             console.log(`Error in login page`);
         }else{

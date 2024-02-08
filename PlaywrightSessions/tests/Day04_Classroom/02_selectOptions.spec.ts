@@ -42,4 +42,5 @@ test('To create the new lead', async () =>{
     const status = await page.locator('#viewLead_statusId_sp').innerText();//getting the status of the lead
     console.log(status);//print the status of the lead
     await page.waitForTimeout(5000);
-})
+    await page.screenshot();
+});
